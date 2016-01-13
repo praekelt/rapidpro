@@ -16,6 +16,6 @@ fi
 
 $pip install -r pip-freeze.txt
 
-$manage migrate
-$manage collectstatic
+$manage migrate --noinput
+$manage collectstatic --noinput
 $manage compress
