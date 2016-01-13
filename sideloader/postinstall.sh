@@ -1,15 +1,21 @@
+#!/bin/bash
+
+manage="${VENV}/bin/python ${INSTALLDIR}/${REPO}/manage.py"
+
 pip="${VENV}/bin/pip"
 
 cd "${INSTALLDIR}/${REPO}/"
 
-if [ ! -f /usr/local/bin/coffee ]; then
+if [ ! -e /usr/local/bin/coffee ]; then
     npm install -g coffee-script
 fi
 
-if [ ! -f /usr/bin/lessc ]; then
+if [ ! -e /usr/bin/lessc ]; then
     npm install -g less
 fi
 
 $pip install -r pip-freeze.txt
-python manage.py migrate --noinput
-python manage.py collectstatic --noinput
+
+$manage migrate --noinput
+$manage collectstatic --noinput
+$manage compress
