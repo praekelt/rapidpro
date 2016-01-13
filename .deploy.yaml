@@ -11,3 +11,4 @@ dependencies:
   - libpq-dev
   - build-essential
   - nodejs
+  - ncurses-dev
